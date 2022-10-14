@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ARG java_image_tag=11-jre-slim
+ARG java_image_tag=8-alpine
 
 FROM openjdk:${java_image_tag} as base
 
