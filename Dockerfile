@@ -18,7 +18,7 @@ ARG java_image_tag=8-alpine
 
 FROM openjdk:${java_image_tag} as base
 
-ARG spark_uid=zndw
+ARG spark_uid=2023
 
 # Before building the docker image, first build and make a Spark distribution following
 # the instructions in http://spark.apache.org/docs/latest/building-spark.html.
