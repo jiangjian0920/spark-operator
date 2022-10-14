@@ -18,7 +18,7 @@ ARG java_image_tag=11-jre-slim
 
 FROM openjdk:${java_image_tag} as base
 
-ARG spark_uid=zndw
+ARG spark_uid=2032
 
 # Before building the docker image, first build and make a Spark distribution following
 # the instructions in http://spark.apache.org/docs/latest/building-spark.html.
@@ -64,7 +64,7 @@ COPY --from=build ${spark_dir}/data /opt/spark/data
 
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
-
+RUN useradd -u 2032 zndw
 WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir
 #RUN chmod a+x /opt/decom.sh
