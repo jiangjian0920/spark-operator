@@ -69,6 +69,8 @@ WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir
 #RUN chmod a+x /opt/decom.sh
 RUN chmod a+x /opt/entrypoint.sh
+RUN rm /opt/spark/jars/kubernetes-client-3.0.0.jar
+ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/6.1.1/kubernetes-client-6.1.1.jar /opt/spark/jars
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
