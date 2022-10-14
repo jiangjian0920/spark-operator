@@ -28,15 +28,15 @@ ARG spark_uid=zndw
 # docker build -t spark:latest -f kubernetes/dockerfiles/spark/Dockerfile .
 
 RUN set -ex && \
-    sed -i 's/http:\/\/deb.\(.*\)/https:\/\/deb.\1/g' /etc/apt/sources.list && \
-    apt-get update && \
-    ln -s /lib /lib64 && \
-    apt install -y bash tini libc6 libpam-modules krb5-user libnss3 wget && \
+    apk upgrade --no-cache && \
+    apk add --no-cache bash tini libc6-compat linux-pam && \
+    mkdir -p /opt/spark && \
+    mkdir -p /opt/spark/work-dir && \
+    touch /opt/spark/RELEASE && \
     rm /bin/sh && \
     ln -sv /bin/bash /bin/sh && \
     echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su && \
-    chgrp root /etc/passwd && chmod ug+rw /etc/passwd && \
-    rm -rf /var/cache/apt/*
+    chgrp root /etc/passwd && chmod ug+rw /etc/passwd
 
 FROM base as spark
 ### Download Spark Distribution ###
@@ -68,7 +68,7 @@ RUN useradd -u 2032 zndw
 WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir
 #RUN chmod a+x /opt/decom.sh
-
+RUN chmod a+x /opt/entrypoint.sh
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
