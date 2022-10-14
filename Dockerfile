@@ -64,7 +64,7 @@ COPY --from=build ${spark_dir}/data /opt/spark/data
 
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
-RUN useradd -u 2032 zndw
+RUN echo 'zndw:x:2023:2023::/home/zndw:/bin/sh' >> /etc/passwd
 WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir
 #RUN chmod a+x /opt/decom.sh
