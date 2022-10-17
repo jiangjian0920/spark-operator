@@ -71,6 +71,7 @@ RUN chmod g+w /opt/spark/work-dir
 RUN chmod a+x /opt/entrypoint.sh
 RUN rm /opt/spark/jars/kubernetes-client-3.0.0.jar
 ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.4.2/kubernetes-client-4.4.2.jar /opt/spark/jars
+RUN chown -R 1000:1000 /opt/spark/jars/kubernetes-client-4.4.2.jar
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
