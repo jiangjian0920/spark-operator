@@ -18,8 +18,6 @@ ARG java_image_tag=8-jdk
 
 FROM openjdk:${java_image_tag} as base
 
-ARG spark_uid=2023
-
 # Before building the docker image, first build and make a Spark distribution following
 # the instructions in http://spark.apache.org/docs/latest/building-spark.html.
 # If this docker file is being used in the context of building your images from a Spark
@@ -74,4 +72,3 @@ RUN chmod a+x /opt/entrypoint.sh
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 # Specify the User that the actual main process will run as
-USER ${spark_uid}
