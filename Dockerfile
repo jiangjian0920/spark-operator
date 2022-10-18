@@ -17,7 +17,7 @@
 ARG java_image_tag=8-jdk
 
 FROM openjdk:${java_image_tag} as base
-ARG spark_uid=2032
+ARG spark_uid=0
 # Before building the docker image, first build and make a Spark distribution following
 # the instructions in http://spark.apache.org/docs/latest/building-spark.html.
 # If this docker file is being used in the context of building your images from a Spark
@@ -64,7 +64,7 @@ COPY --from=build ${spark_dir}/data /opt/spark/data
 
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
-RUN echo 'zndw:x:2032:2032:anonymous uid:/opt/spark:/bin/false' >> /etc/passwd
+RUN echo 'zndw:x:0:0::/home/zndw:/bin/bash' >> /etc/passwd
 WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir
 #RUN chmod a+x /opt/decom.sh
