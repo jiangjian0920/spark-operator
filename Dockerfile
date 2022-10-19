@@ -75,11 +75,11 @@ RUN chown 1000:1000 /opt/spark/jars/okio-1.13.0.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-client-4.6.1.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-model-common-4.6.1.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-model-4.6.1.jar
-RUN chown 644 /opt/spark/jars/okhttp-3.8.1.jar
-RUN chown 644 /opt/spark/jars/okio-1.13.0.jar
-RUN chown 644 /opt/spark/jars/kubernetes-client-4.6.1.jar
-RUN chown 644 /opt/spark/jars/kubernetes-model-common-4.6.1.jar
-RUN chown 644 /opt/spark/jars/kubernetes-model-4.6.1.jar
+RUN chmod 644 /opt/spark/jars/okhttp-3.8.1.jar
+RUN chmod 644 /opt/spark/jars/okio-1.13.0.jar
+RUN chmod 644 /opt/spark/jars/kubernetes-client-4.6.1.jar
+RUN chmod 644 /opt/spark/jars/kubernetes-model-common-4.6.1.jar
+RUN chmod 644 /opt/spark/jars/kubernetes-model-4.6.1.jar
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
 RUN echo 'zndw:x:2023:0::/home/zndw:/bin/bash' >> /etc/passwd
