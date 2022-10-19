@@ -62,9 +62,13 @@ COPY --from=build ${spark_dir}/data /opt/spark/data
 
 RUN rm  /opt/spark/jars/kubernetes-client-3.0.0.jar
 RUN rm  /opt/spark/jars/kubernetes-model-2.0.0.jar
+RUN rm /opt/spark/jars/okhttp-3.8.1.jar
+RUN rm /opt/spark/jars/okio-1.13.0.jar
 ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.6.1/kubernetes-client-4.6.1.jar /opt/spark/jars
 ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-model-common/4.6.1/kubernetes-model-common-4.6.1.jar /opt/spark/jars
 ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-model/4.6.1/kubernetes-model-4.6.1.jar /opt/spark/jars
+ADD okhttp-3.12.0.jar  /opt/spark/jars/
+ADD okio-1.15.0.jar  /opt/spark/jars/
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
 RUN echo 'zndw:x:2023:0::/home/zndw:/bin/bash' >> /etc/passwd
