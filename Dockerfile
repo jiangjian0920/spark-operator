@@ -70,13 +70,13 @@ ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-model/4.6.1/kubernetes-
 ADD okhttp-3.12.0.jar  /opt/spark/jars/
 ADD okio-1.15.0.jar  /opt/spark/jars/
 
-RUN chown 1000:1000 /opt/spark/jars/okhttp-3.8.1.jar
-RUN chown 1000:1000 /opt/spark/jars/okio-1.13.0.jar
+RUN chown 1000:1000 /opt/spark/jars/okhttp-3.12.0.jar
+RUN chown 1000:1000 /opt/spark/jars/okio-1.15.0.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-client-4.6.1.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-model-common-4.6.1.jar
 RUN chown 1000:1000 /opt/spark/jars/kubernetes-model-4.6.1.jar
-RUN chmod 644 /opt/spark/jars/okhttp-3.8.1.jar
-RUN chmod 644 /opt/spark/jars/okio-1.13.0.jar
+RUN chmod 644 /opt/spark/jars/okhttp-3.12.0.jar
+RUN chmod 644 /opt/spark/jars/okio-1.15.0.jar
 RUN chmod 644 /opt/spark/jars/kubernetes-client-4.6.1.jar
 RUN chmod 644 /opt/spark/jars/kubernetes-model-common-4.6.1.jar
 RUN chmod 644 /opt/spark/jars/kubernetes-model-4.6.1.jar
