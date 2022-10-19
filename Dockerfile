@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ARG java_image_tag=8-jdk
+ARG java_image_tag=8
 
 FROM openjdk:${java_image_tag} as base
 ARG spark_uid=2023
