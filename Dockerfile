@@ -16,7 +16,7 @@ RUN set -ex && \
     echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su && \
     chgrp root /etc/passwd && chmod ug+rw /etc/passwd && \
     rm -rf /var/cache/apt/*
-
+RUN mkdir -p /opt/spark/conf/
 FROM base as spark
 ### Download Spark Distribution ###
 WORKDIR /opt
