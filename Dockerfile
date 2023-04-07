@@ -40,7 +40,7 @@ COPY --from=build ${spark_dir}/kubernetes/dockerfiles/spark/entrypoint.sh /opt/
 COPY --from=build ${spark_dir}/examples /opt/spark/examples
 COPY --from=build ${spark_dir}/kubernetes/tests /opt/spark/tests
 COPY --from=build ${spark_dir}/data /opt/spark/data
-COPY --from=build ${spark_dir}/kubernetes/dockerfiles/spark/entrypoint.sh /opt/spark/conf
+COPY --from=build ${spark_dir}/kubernetes/dockerfiles/spark/entrypoint.sh /opt/spark/conf/
 
 WORKDIR /opt/spark/work-dir
 ENV SPARK_HOME /opt/spark
