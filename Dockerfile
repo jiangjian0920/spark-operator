@@ -26,7 +26,7 @@ RUN tar xvf spark-2.4.8-bin-hadoop2.7.tgz
 FROM spark as build
 ### Create target directories ###
 RUN mkdir -p /opt/spark/jars
-RUN mkdir -p /opt/spark/conf/
+RUN mkdir -p /opt/spark/conf
 ### Set Spark dir ARG for use Docker build context on root project dir ###
 FROM base as final
 ARG spark_dir=/opt/spark-2.4.8-bin-hadoop2.7
