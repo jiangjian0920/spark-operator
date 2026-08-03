@@ -1,1 +1,1 @@
-FROM grafana/grafana:13.0.1
+FROM emqx/emqx:5.8.11
